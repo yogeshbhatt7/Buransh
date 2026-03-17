@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BURANSH — Brand Identity by YB Digital</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --crimson:     #C0392B;
+    --crimson-deep:#8B1A0E;
+    --crimson-soft:#E8594A;
+    --blush:       #F5D0C5;
+    --petal:       #FAE8E4;
+    --cream:       #FBF6F0;
+    --bark:        #3D2B1F;
+    --bark-light:  #6B4832;
+    --snow:        #FEFCFA;
+    --mist:        rgba(192,57,43,0.08);
+    --gold:        #C4933F;
+    --gold-light:  #E8C87A;
+  }
+ 
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+  html { scroll-behavior: smooth; }
+ 
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--bark);
+    overflow-x: hidden;
+  }
+ 
+  /* ---- PAGE COVER ---- */
+  .cover {
+    min-height: 100vh;
+    background: var(--bark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 3rem 2rem;
+  }
+ 
+  .cover-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 40%, #5a1a10 0%, #3D2B1F 55%, #1a0f09 100%);
+  }
+ 
+  /* Decorative petal shapes */
+  .petal-decor {
+    position: absolute;
+    border-radius: 50% 0 50% 0;
+    opacity: 0.06;
+    animation: float 8s ease-in-out infinite;
+  }
+  .petal-decor:nth-child(1) { width:320px;height:320px;top:-80px;left:-100px;background:var(--crimson);animation-delay:0s; }
+  .petal-decor:nth-child(2) { width:200px;height:200px;top:10%;right:-60px;background:var(--crimson-soft);animation-delay:-2s;border-radius:0 50% 0 50%; }
+  .petal-decor:nth-child(3) { width:260px;height:260px;bottom:-60px;left:30%;background:var(--crimson-deep);animation-delay:-4s; }
+  .petal-decor:nth-child(4) { width:140px;height:140px;bottom:20%;right:10%;background:var(--gold);animation-delay:-6s;border-radius:0 50% 0 50%; }
+ 
+  @keyframes float {
+    0%,100%{ transform: translateY(0) rotate(0deg); }
+    50%    { transform: translateY(-18px) rotate(4deg); }
+  }
+ 
+  .cover-tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    margin-bottom: 2.2rem;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.3s forwards;
+  }
+ 
+  .cover-logo {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.9s 0.5s forwards;
+  }
+ 
+  .cover-logo .brand-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(5rem, 14vw, 10rem);
+    font-weight: 900;
+    color: var(--petal);
+    line-height: 0.88;
+    letter-spacing: -0.02em;
+    display: block;
+  }
+ 
+  .cover-logo .brand-flower {
+    display: inline-block;
+    width: 60px; height: 60px;
+    margin: 1rem auto;
+  }
+ 
+  .cover-logo .tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--blush);
+    letter-spacing: 0.06em;
+    margin-top: 0.6rem;
+  }
+ 
+  .cover-sub {
+    position: relative; z-index: 2;
+    font-size: 12px;
+    color: rgba(245,208,197,0.5);
+    letter-spacing: 0.14em;
+    text-align: center;
+    margin-top: 3rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.9s forwards;
+  }
+ 
+  .cover-divider {
+    width: 1px; height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--gold-light), transparent);
+    margin: 2rem auto 0;
+    opacity: 0;
+    animation: fadeUp 0.8s 1s forwards;
+  }
+ 
+  @keyframes fadeUp {
+    from { opacity:0; transform: translateY(24px); }
+    to   { opacity:1; transform: translateY(0); }
+  }
+ 
+  /* ---- SECTION WRAPPER ---- */
+  section {
+    padding: 5rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+ 
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 0.8rem;
+  }
+ 
+  h2.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    color: var(--bark);
+    line-height: 1.15;
+    margin-bottom: 2.5rem;
+  }
+ 
+  /* ---- BRAND STORY ---- */
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+ 
+  .story-text p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 1.75;
+    color: var(--bark-light);
+    margin-bottom: 1.2rem;
+  }
+ 
+  .story-text p strong {
+    color: var(--crimson-deep);
+    font-weight: 600;
+  }
+ 
+  .story-visual {
+    background: var(--bark);
+    border-radius: 2px;
+    padding: 3rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+ 
+  .story-visual::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, #5a1a10 0%, #3D2B1F 100%);
+  }
+ 
+  .story-visual-inner { position: relative; z-index: 1; }
+ 
+  .altitude-stat {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem;
+    font-weight: 900;
+    color: var(--blush);
+    line-height: 1;
+    display: block;
+  }
+ 
+  .altitude-unit {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--gold-light);
+    font-style: italic;
+    letter-spacing: 0.1em;
+  }
+ 
+  .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    margin-top: 2rem;
+    background: rgba(245,208,197,0.15);
+  }
+ 
+  .stat-item {
+    background: rgba(61,43,31,0.6);
+    padding: 1.2rem;
+    text-align: center;
+  }
+ 
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--petal);
+    display: block;
+  }
+ 
+  .stat-lbl {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--blush);
+    opacity: 0.7;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+ 
+  /* ---- COLOR PALETTE ---- */
+  .palette-section { background: var(--snow); }
+  .palette-full { padding: 5rem 2rem; }
+ 
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+ 
+  .swatch {
+    aspect-ratio: 1/1.4;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem 0.85rem;
+    cursor: default;
+    transition: transform 0.2s;
+  }
+  .swatch:hover { transform: scaleY(1.04); transform-origin: bottom; }
+ 
+  .swatch-name {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .swatch-hex {
+    font-family: 'DM Sans', monospace;
+    font-size: 10px;
+    opacity: 0.7;
+  }
+ 
+  /* ---- TYPOGRAPHY ---- */
+  .type-section { padding: 5rem 2rem; }
+ 
+  .type-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+ 
+  .type-block { border-left: 2px solid var(--crimson); padding-left: 1.5rem; }
+  .type-specimen {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--bark);
+    margin-bottom: 0.5rem;
+  }
+  .type-specimen.italic { font-style: italic; color: var(--crimson-deep); }
+  .type-meta { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--bark-light); opacity: 0.6; }
+ 
+  .body-specimen {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    line-height: 1.7;
+    color: var(--bark-light);
+    font-style: italic;
+    margin-bottom: 0.4rem;
+  }
+ 
+  /* ---- LOGO LOCKUPS ---- */
+  .lockup-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--blush);
+  }
+ 
+  .lockup-cell {
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 220px;
+  }
+ 
+  .lockup-cell.bg-dark  { background: var(--bark); }
+  .lockup-cell.bg-cream { background: var(--cream); }
+  .lockup-cell.bg-red   { background: var(--crimson); }
+ 
+  .lockup-wordmark {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    line-height: 1;
+  }
+ 
+  .lockup-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.22em;
+  }
+ 
+  .lockup-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.45;
+    margin-top: 1rem;
+  }
+ 
+  /* ---- PACKAGING MOCKUP ---- */
+  .packaging-section {
+    background: var(--bark);
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+  }
+ 
+  .packaging-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+    position: relative;
+    z-index: 1;
+  }
+ 
+  .packaging-section .section-label { color: var(--gold-light); }
+  .packaging-section h2.section-title { color: var(--petal); }
+ 
+  .bottles-row {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+  }
+ 
+  .bottle-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards;
+  }
+  .bottle-wrap:nth-child(1) { animation-delay: 0.1s; }
+  .bottle-wrap:nth-child(2) { animation-delay: 0.25s; }
+  .bottle-wrap:nth-child(3) { animation-delay: 0.4s; }
+ 
+  .bottle-svg { width: 130px; height: auto; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5)); }
+ 
+  .bottle-label-text {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--blush);
+    opacity: 0.7;
+  }
+ 
+  /* ---- VOICE & TONE ---- */
+  .voice-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--blush);
+    margin-top: 2rem;
+  }
+ 
+  .voice-cell {
+    background: var(--snow);
+    padding: 2rem 2.2rem;
+  }
+ 
+  .voice-cell h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--crimson-deep);
+    margin-bottom: 0.5rem;
+  }
+ 
+  .voice-cell p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    line-height: 1.65;
+    color: var(--bark-light);
+  }
+ 
+  .do-dont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+ 
+  .do-card, .dont-card {
+    padding: 1.5rem;
+    border-radius: 2px;
+  }
+ 
+  .do-card { background: var(--petal); border-left: 3px solid var(--crimson); }
+  .dont-card { background: #f5f0ea; border-left: 3px solid #bbb; }
+ 
+  .do-card h5 { color: var(--crimson); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.8rem; }
+  .dont-card h5 { color: #999; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.8rem; }
+ 
+  .do-card p, .dont-card p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--bark-light);
+  }
+ 
+  /* ---- MARKETING COPY ---- */
+  .copy-section { background: var(--petal); }
+  .copy-section-inner { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
+ 
+  .headlines-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 2rem;
+    background: var(--blush);
+  }
+ 
+  .headline-card {
+    background: var(--snow);
+    padding: 2rem 2.4rem;
+  }
+ 
+  .headline-card .use { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--crimson); margin-bottom: 0.8rem; }
+ 
+  .headline-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--bark);
+    line-height: 1.25;
+    margin-bottom: 0.6rem;
+  }
+ 
+  .headline-card p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    color: var(--bark-light);
+    line-height: 1.6;
+    font-style: italic;
+  }
+ 
+  /* ---- FOOTER ---- */
+  .brand-footer {
+    background: var(--bark);
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+ 
+  .brand-footer::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 50% 100%, #5a1a10 0%, transparent 70%);
+  }
+ 
+  .footer-inner { position: relative; z-index: 1; }
+ 
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--petal);
+    letter-spacing: -0.02em;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+ 
+  .footer-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--gold-light);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 2.5rem;
+  }
+ 
+  .footer-divider {
+    width: 60px; height: 1px;
+    background: var(--gold-light);
+    margin: 2rem auto;
+    opacity: 0.4;
+  }
+ 
+  .footer-credit {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--blush);
+    opacity: 0.5;
+  }
+ 
+  .footer-credit span { color: var(--gold-light); opacity: 1; }
+ 
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 700px) {
+    .story-grid, .type-showcase, .do-dont, .headlines-grid, .voice-grid { grid-template-columns: 1fr; }
+    .lockup-grid { grid-template-columns: 1fr 1fr; }
+    .swatches { grid-template-columns: repeat(3, 1fr); }
+    .swatches .swatch:nth-child(n+4) { display: none; }
+  }
+ 
+  /* ---- FLOWER SVG inline ---- */
+  .flower-svg { display: inline-block; }
+</style>
+</head>
+<body>
+ 
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-bg"></div>
+  <div class="petal-decor"></div>
+  <div class="petal-decor"></div>
+  <div class="petal-decor"></div>
+  <div class="petal-decor"></div>
+ 
+  <div class="cover-tag">Brand Identity System · 2025</div>
+ 
+  <div class="cover-logo">
+    <span class="brand-name">Buransh</span>
+ 
+    <!-- Flower mark SVG -->
+    <svg class="brand-flower" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g opacity="0.9">
+        <ellipse cx="30" cy="14" rx="7" ry="13" fill="#C0392B" transform="rotate(0 30 30)"/>
+        <ellipse cx="30" cy="14" rx="7" ry="13" fill="#C0392B" transform="rotate(60 30 30)"/>
+        <ellipse cx="30" cy="14" rx="7" ry="13" fill="#C0392B" transform="rotate(120 30 30)"/>
+        <ellipse cx="30" cy="14" rx="7" ry="13" fill="#E8594A" transform="rotate(180 30 30)"/>
+        <ellipse cx="30" cy="14" rx="7" ry="13" fill="#E8594A" transform="rotate(240 30 30)"/>
+        <ellipse cx="30" cy="14" rx="7" ry="13" fill="#E8594A" transform="rotate(300 30 30)"/>
+        <circle cx="30" cy="30" r="7" fill="#C4933F"/>
+        <circle cx="30" cy="30" r="3.5" fill="#FAE8E4"/>
+      </g>
+    </svg>
+ 
+    <div class="tagline">Born in the Himalayas. Bloomed for the World.</div>
+  </div>
+ 
+  <div class="cover-sub">A brand identity by Uttarakhand YB Digital</div>
+  <div class="cover-divider"></div>
+</div>
+ 
+ 
+<!-- BRAND STORY -->
+<section>
+  <div class="section-label">01 — Brand foundation</div>
+  <h2 class="section-title">The story behind the flower</h2>
+  <div class="story-grid">
+    <div class="story-text">
+      <p>High above the treeline in Uttarakhand's sacred valleys, where glacial winds carry the scent of alpine meadows, <strong>the Rhododendron arboreum</strong> blooms in fierce, unapologetic red every March.</p>
+      <p>For generations, hill communities harvested its petals for <strong>sharabat</strong> — a cool, tart drink that tasted of altitude and wildness. They called it Buransh. The state made it its flower. And yet, the world never heard its name.</p>
+      <p>Until now. <strong>Buransh is the first and only brand</strong> built entirely around this flower — bottled at source, cold-processed, and told as the rare, global drink story it deserves to be.</p>
+    </div>
+    <div class="story-visual">
+      <div class="story-visual-inner">
+        <span class="altitude-stat">1,200</span>
+        <span class="altitude-unit">— 2,300 metres above sea level</span>
+        <div class="stat-grid">
+          <div class="stat-item"><span class="stat-num">1</span><span class="stat-lbl">State flower</span></div>
+          <div class="stat-item"><span class="stat-num">Mar</span><span class="stat-lbl">Harvest season</span></div>
+          <div class="stat-item"><span class="stat-num">5</span><span class="stat-lbl">Districts sourced</span></div>
+          <div class="stat-item"><span class="stat-num">0</span><span class="stat-lbl">Preservatives</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+ 
+<!-- COLOR PALETTE -->
+<div class="palette-section">
+  <div class="palette-full" style="max-width:1100px;margin:0 auto;">
+    <div class="section-label">02 — Colour palette</div>
+    <h2 class="section-title">Colours of the hillside</h2>
+    <div class="swatches">
+      <div class="swatch" style="background:#C0392B;">
+        <span class="swatch-name" style="color:#FAE8E4;">Buransh</span>
+        <span class="swatch-hex" style="color:#FAE8E4;">#C0392B</span>
+      </div>
+      <div class="swatch" style="background:#8B1A0E;">
+        <span class="swatch-name" style="color:#F5D0C5;">Deep crimson</span>
+        <span class="swatch-hex" style="color:#F5D0C5;">#8B1A0E</span>
+      </div>
+      <div class="swatch" style="background:#3D2B1F;">
+        <span class="swatch-name" style="color:#F5D0C5;">Mountain bark</span>
+        <span class="swatch-hex" style="color:#F5D0C5;">#3D2B1F</span>
+      </div>
+      <div class="swatch" style="background:#C4933F;">
+        <span class="swatch-name" style="color:#FAE8E4;">Pollen gold</span>
+        <span class="swatch-hex" style="color:#FAE8E4;">#C4933F</span>
+      </div>
+      <div class="swatch" style="background:#FBF6F0;">
+        <span class="swatch-name" style="color:#6B4832;">Snow mist</span>
+        <span class="swatch-hex" style="color:#6B4832;">#FBF6F0</span>
+      </div>
+    </div>
+    <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--bark-light);font-style:italic;max-width:600px;">
+      The palette draws from the flower itself — the deep crimson of the petals, the golden pollen at its centre, the warm bark of the oak forest, and the pale mist of a Himalayan morning.
+    </p>
+  </div>
+</div>
+ 
+ 
+<!-- TYPOGRAPHY -->
+<section class="type-section">
+  <div class="section-label">03 — Typography</div>
+  <h2 class="section-title">Voice in print</h2>
+  <div class="type-showcase">
+    <div class="type-block">
+      <div class="type-specimen">Playfair<br>Display</div>
+      <div class="type-specimen italic">Buransh.</div>
+      <div class="type-meta" style="margin-top:1rem;">Display font · Headlines · Wordmark</div>
+      <p style="font-family:'DM Sans',sans-serif;font-size:13px;color:var(--bark-light);margin-top:1rem;line-height:1.6;">Used for all brand headlines, the wordmark, and packaging primary text. Its editorial confidence signals luxury without coldness.</p>
+    </div>
+    <div class="type-block" style="border-color:var(--gold);">
+      <div class="body-specimen">"From altitudes where the air itself<br>tastes like freedom."</div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:300;color:var(--bark-light);margin-top:0.5rem;line-height:1.65;">Cormorant Garamond — italic, refined, poetic. Used for brand voice copy, packaging descriptors, and editorial content.</div>
+      <div class="type-meta" style="margin-top:1rem;">Body & editorial · Italic voice · Descriptors</div>
+    </div>
+  </div>
+</section>
+ 
+ 
+<!-- LOGO LOCKUPS -->
+<div style="background:var(--cream);padding:5rem 0 0;">
+  <div style="max-width:1100px;margin:0 auto;padding:0 2rem 2rem;">
+    <div class="section-label">04 — Logo lockups</div>
+    <h2 class="section-title">Mark & wordmark</h2>
+  </div>
+  <div class="lockup-grid">
+ 
+    <!-- Dark bg -->
+    <div class="lockup-cell bg-dark">
+      <svg width="48" height="48" viewBox="0 0 60 60" fill="none">
+        <ellipse cx="30" cy="14" rx="7" ry="13" fill="#C0392B" transform="rotate(0 30 30)"/>
+        <ellipse cx="30" cy="14" rx="7" ry="13" fill="#C0392B" transform="rotate(60 30 30)"/>
+        <ellipse cx="30" cy="14" rx="7" ry="13" fill="#C0392B" transform="rotate(120 30 30)"/>
+        <ellipse cx="30" cy="14" rx="7" ry="13" fill="#E8594A" transform="rotate(180 30 30)"/>
+        <ellipse cx="30" cy="14" rx="7" ry="13" fill="#E8594A" transform="rotate(240 30 30)"/>
+        <ellipse cx="30" cy="14" rx="7" ry="13" fill="#E8594A" transform="rotate(300 30 30)"/>
+        <circle cx="30" cy="30" r="7" fill="#C4933F"/>
+        <circle cx="30" cy="30" r="3.5" fill="#FAE8E4"/>
+      </svg>
+      <div class="lockup-wordmark" style="font-size:2.2rem;color:#FAE8E4;">Buransh</div>
+      <div class="lockup-sub" style="font-size:0.75rem;color:#C4933F;letter-spacing:0.28em;">UTTARAKHAND · HIMALAYAN FLORAL</div>
+      <div class="lockup-label" style="color:#FAE8E4;">Primary lockup — dark</div>
+    </div>
+ 
+    <!-- Cream bg -->
+    <div class="lockup-cell bg-cream">
+      <svg width="48" height="48" viewBox="0 0 60 60" fill="none">
+        <ellipse cx="30" cy="14" rx="7" ry="13" fill="#C0392B" transform="rotate(0 30 30)"/>
+        <ellipse cx="30" cy="14" rx="7" ry="13" fill="#C0392B" transform="rotate(60 30 30)"/>
+        <ellipse cx="30" cy="14" rx="7" ry="13" fill="#C0392B" transform="rotate(120 30 30)"/>
+        <ellipse cx="30" cy="14" rx="7" ry="13" fill="#8B1A0E" transform="rotate(180 30 30)"/>
+        <ellipse cx="30" cy="14" rx="7" ry="13" fill="#8B1A0E" transform="rotate(240 30 30)"/>
+        <ellipse cx="30" cy="14" rx="7" ry="13" fill="#8B1A0E" transform="rotate(300 30 30)"/>
+        <circle cx="30" cy="30" r="7" fill="#C4933F"/>
+        <circle cx="30" cy="30" r="3.5" fill="#3D2B1F"/>
+      </svg>
+      <div class="lockup-wordmark" style="font-size:2.2rem;color:#3D2B1F;">Buransh</div>
+      <div class="lockup-sub" style="font-size:0.75rem;color:#C4933F;letter-spacing:0.28em;">UTTARAKHAND · HIMALAYAN FLORAL</div>
+      <div class="lockup-label" style="color:#6B4832;">Primary lockup — light</div>
+    </div>
+ 
+    <!-- Red bg -->
+    <div class="lockup-cell bg-red">
+      <svg width="48" height="48" viewBox="0 0 60 60" fill="none">
+        <ellipse cx="30" cy="14" rx="7" ry="13" fill="rgba(255,255,255,0.25)" transform="rotate(0 30 30)"/>
+        <ellipse cx="30" cy="14" rx="7" ry="13" fill="rgba(255,255,255,0.25)" transform="rotate(60 30 30)"/>
+        <ellipse cx="30" cy="14" rx="7" ry="13" fill="rgba(255,255,255,0.25)" transform="rotate(120 30 30)"/>
+        <ellipse cx="30" cy="14" rx="7" ry="13" fill="rgba(255,255,255,0.15)" transform="rotate(180 30 30)"/>
+        <ellipse cx="30" cy="14" rx="7" ry="13" fill="rgba(255,255,255,0.15)" transform="rotate(240 30 30)"/>
+        <ellipse cx="30" cy="14" rx="7" ry="13" fill="rgba(255,255,255,0.15)" transform="rotate(300 30 30)"/>
+        <circle cx="30" cy="30" r="7" fill="#E8C87A"/>
+        <circle cx="30" cy="30" r="3.5" fill="#C0392B"/>
+      </svg>
+      <div class="lockup-wordmark" style="font-size:2.2rem;color:#FBF6F0;">Buransh</div>
+      <div class="lockup-sub" style="font-size:0.75rem;color:#FAE8E4;letter-spacing:0.28em;opacity:0.75;">UTTARAKHAND · HIMALAYAN FLORAL</div>
+      <div class="lockup-label" style="color:#FBF6F0;">Reversed — crimson</div>
+    </div>
+ 
+  </div>
+</div>
+ 
+ 
+<!-- PACKAGING MOCKUP -->
+<div class="packaging-section">
+  <div class="packaging-inner">
+    <div class="section-label">05 — Packaging concept</div>
+    <h2 class="section-title">The bottle as art object</h2>
+ 
+    <div class="bottles-row">
+ 
+      <!-- Bottle 1 — Concentrate -->
+      <div class="bottle-wrap">
+        <svg class="bottle-svg" width="130" height="320" viewBox="0 0 130 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Glass bottle shape -->
+          <path d="M52 20 C52 20 48 28 46 40 C44 52 44 60 40 75 C35 92 28 100 28 130 L28 270 C28 290 40 300 65 300 C90 300 102 290 102 270 L102 130 C102 100 95 92 90 75 C86 60 86 52 84 40 C82 28 78 20 78 20 Z" fill="#2a1a10" stroke="rgba(245,208,197,0.3)" stroke-width="1"/>
+          <!-- Liquid -->
+          <path d="M32 140 L32 268 C32 284 43 295 65 295 C87 295 98 284 98 268 L98 140 Z" fill="#8B1A0E" opacity="0.85"/>
+          <!-- Light refraction -->
+          <path d="M38 145 L38 265" stroke="rgba(245,208,197,0.12)" stroke-width="6"/>
+          <!-- Neck label area -->
+          <rect x="44" y="42" width="42" height="28" rx="2" fill="#3D2B1F"/>
+          <!-- Label -->
+          <rect x="30" y="155" width="70" height="100" rx="2" fill="#FAE8E4"/>
+          <text x="65" y="183" text-anchor="middle" font-family="serif" font-size="14" font-weight="bold" fill="#8B1A0E">BURANSH</text>
+          <line x1="36" y1="190" x2="94" y2="190" stroke="#C4933F" stroke-width="0.5"/>
+          <text x="65" y="204" text-anchor="middle" font-family="serif" font-size="7" fill="#6B4832" letter-spacing="2">HIMALAYAN FLORAL</text>
+          <text x="65" y="216" text-anchor="middle" font-family="serif" font-size="7" fill="#6B4832" letter-spacing="1">CONCENTRATE</text>
+          <text x="65" y="230" text-anchor="middle" font-family="serif" font-size="6.5" fill="#8B1A0E" font-style="italic">450 ml</text>
+          <!-- Flower on label -->
+          <g transform="translate(65,244) scale(0.5)">
+            <ellipse cx="0" cy="-10" rx="4" ry="9" fill="#C0392B" transform="rotate(0)"/>
+            <ellipse cx="0" cy="-10" rx="4" ry="9" fill="#C0392B" transform="rotate(60)"/>
+            <ellipse cx="0" cy="-10" rx="4" ry="9" fill="#E8594A" transform="rotate(120)"/>
+            <ellipse cx="0" cy="-10" rx="4" ry="9" fill="#E8594A" transform="rotate(180)"/>
+            <ellipse cx="0" cy="-10" rx="4" ry="9" fill="#C0392B" transform="rotate(240)"/>
+            <ellipse cx="0" cy="-10" rx="4" ry="9" fill="#E8594A" transform="rotate(300)"/>
+            <circle cx="0" cy="0" r="4" fill="#C4933F"/>
+          </g>
+          <!-- Cap -->
+          <rect x="54" y="10" width="22" height="14" rx="3" fill="#C4933F"/>
+        </svg>
+        <span class="bottle-label-text">Concentrate · 450ml</span>
+      </div>
+ 
+      <!-- Bottle 2 — RTD Can -->
+      <div class="bottle-wrap" style="animation-delay:0.25s;">
+        <svg class="bottle-svg" width="110" height="280" viewBox="0 0 110 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Can body -->
+          <rect x="20" y="40" width="70" height="210" rx="8" fill="#C0392B"/>
+          <!-- Highlights -->
+          <rect x="24" y="44" width="10" height="200" rx="3" fill="rgba(255,255,255,0.08)"/>
+          <!-- Top -->
+          <ellipse cx="55" cy="40" rx="35" ry="8" fill="#A32420"/>
+          <!-- Bottom -->
+          <ellipse cx="55" cy="250" rx="35" ry="8" fill="#8B1A0E"/>
+          <!-- Label band -->
+          <rect x="20" y="80" width="70" height="130" fill="#8B1A0E" opacity="0.4"/>
+          <!-- Brand text -->
+          <text x="55" y="120" text-anchor="middle" font-family="serif" font-size="18" font-weight="bold" fill="#FAE8E4">BURANSH</text>
+          <line x1="26" y1="128" x2="84" y2="128" stroke="#C4933F" stroke-width="0.7"/>
+          <text x="55" y="142" text-anchor="middle" font-family="serif" font-size="6.5" fill="#FAE8E4" letter-spacing="2.5" opacity="0.8">HIMALAYAN</text>
+          <text x="55" y="155" text-anchor="middle" font-family="serif" font-size="6.5" fill="#FAE8E4" letter-spacing="2.5" opacity="0.8">FLORAL DRINK</text>
+          <!-- Flower -->
+          <g transform="translate(55,178) scale(0.55)">
+            <ellipse cx="0" cy="-10" rx="4" ry="9" fill="rgba(250,232,228,0.7)" transform="rotate(0)"/>
+            <ellipse cx="0" cy="-10" rx="4" ry="9" fill="rgba(250,232,228,0.7)" transform="rotate(60)"/>
+            <ellipse cx="0" cy="-10" rx="4" ry="9" fill="rgba(250,232,228,0.5)" transform="rotate(120)"/>
+            <ellipse cx="0" cy="-10" rx="4" ry="9" fill="rgba(250,232,228,0.5)" transform="rotate(180)"/>
+            <ellipse cx="0" cy="-10" rx="4" ry="9" fill="rgba(250,232,228,0.7)" transform="rotate(240)"/>
+            <ellipse cx="0" cy="-10" rx="4" ry="9" fill="rgba(250,232,228,0.5)" transform="rotate(300)"/>
+            <circle cx="0" cy="0" r="4" fill="#C4933F"/>
+          </g>
+          <text x="55" y="202" text-anchor="middle" font-family="serif" font-size="6" fill="#FAE8E4" letter-spacing="1" opacity="0.7">250 ml</text>
+          <!-- Tab -->
+          <ellipse cx="55" cy="38" rx="10" ry="3" fill="#C4933F" opacity="0.8"/>
+        </svg>
+        <span class="bottle-label-text">RTD Can · 250ml</span>
+      </div>
+ 
+      <!-- Bottle 3 — Gift Box -->
+      <div class="bottle-wrap" style="animation-delay:0.4s;">
+        <svg class="bottle-svg" width="130" height="280" viewBox="0 0 130 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Gift box -->
+          <rect x="15" y="60" width="100" height="200" rx="4" fill="#3D2B1F"/>
+          <rect x="18" y="63" width="94" height="194" rx="3" fill="#4a3527"/>
+          <!-- Ribbon vertical -->
+          <rect x="59" y="60" width="12" height="200" fill="#C4933F" opacity="0.6"/>
+          <!-- Ribbon horizontal -->
+          <rect x="15" y="148" width="100" height="10" fill="#C4933F" opacity="0.6"/>
+          <!-- Bow top -->
+          <path d="M65 60 Q45 30 35 50 Q45 65 65 60 Z" fill="#C4933F"/>
+          <path d="M65 60 Q85 30 95 50 Q85 65 65 60 Z" fill="#E8C87A"/>
+          <circle cx="65" cy="62" r="6" fill="#C4933F"/>
+          <!-- Label panel -->
+          <rect x="25" y="78" width="80" height="130" rx="2" fill="#FAE8E4" opacity="0.95"/>
+          <text x="65" y="104" text-anchor="middle" font-family="serif" font-size="13" font-weight="bold" fill="#8B1A0E">BURANSH</text>
+          <line x1="30" y1="111" x2="100" y2="111" stroke="#C4933F" stroke-width="0.5"/>
+          <text x="65" y="124" text-anchor="middle" font-family="serif" font-size="6" fill="#6B4832" letter-spacing="2">HIMALAYAN GIFT</text>
+          <g transform="translate(65,152) scale(0.6)">
+            <ellipse cx="0" cy="-10" rx="4" ry="9" fill="#C0392B" transform="rotate(0)"/>
+            <ellipse cx="0" cy="-10" rx="4" ry="9" fill="#C0392B" transform="rotate(60)"/>
+            <ellipse cx="0" cy="-10" rx="4" ry="9" fill="#E8594A" transform="rotate(120)"/>
+            <ellipse cx="0" cy="-10" rx="4" ry="9" fill="#E8594A" transform="rotate(180)"/>
+            <ellipse cx="0" cy="-10" rx="4" ry="9" fill="#C0392B" transform="rotate(240)"/>
+            <ellipse cx="0" cy="-10" rx="4" ry="9" fill="#E8594A" transform="rotate(300)"/>
+            <circle cx="0" cy="0" r="4" fill="#C4933F"/>
+          </g>
+          <text x="65" y="175" text-anchor="middle" font-family="serif" font-size="6.5" fill="#8B1A0E" font-style="italic">The State Flower of Uttarakhand</text>
+          <line x1="30" y1="181" x2="100" y2="181" stroke="#C4933F" stroke-width="0.3"/>
+          <text x="65" y="194" text-anchor="middle" font-family="serif" font-size="6" fill="#6B4832" letter-spacing="1.5">2 × 450ml</text>
+        </svg>
+        <span class="bottle-label-text">Gift set · 2×450ml</span>
+      </div>
+ 
+    </div>
+  </div>
+</div>
+ 
+ 
+<!-- VOICE & TONE -->
+<section>
+  <div class="section-label">06 — Voice &amp; tone</div>
+  <h2 class="section-title">How Buransh speaks</h2>
+  <div class="voice-grid">
+    <div class="voice-cell"><h4>Poetic, not precious</h4><p>The brand speaks like a pahadi elder — full of warmth, unhurried, with a quiet authority that comes from living close to the mountains. Never overwrought, never clinical.</p></div>
+    <div class="voice-cell"><h4>Proud of its roots</h4><p>Uttarakhand is named, celebrated, and specific. We don't say "the Himalayas" generically — we say Uttarkashi, Chamoli, Almora. Precision is respect.</p></div>
+    <div class="voice-cell"><h4>Confident, not loud</h4><p>We never need to prove ourselves. No exclamation marks. No "only the BEST ingredients!" The product speaks. The story speaks. We let them.</p></div>
+    <div class="voice-cell"><h4>Seasonal, not abundant</h4><p>Buransh blooms for six weeks. The brand communicates scarcity as poetry — not urgency tactics. "This year's harvest is bottled" is a story, not a countdown.</p></div>
+  </div>
+ 
+  <div class="do-dont" style="margin-top:2rem;">
+    <div class="do-card">
+      <h5>✦ Write like this</h5>
+      <p>"Harvested by hand in March, when the hillsides of Chamoli turn crimson. Pressed cold. Bottled the same day. This is what the Himalayas taste like."</p>
+    </div>
+    <div class="dont-card">
+      <h5>✕ Not like this</h5>
+      <p>"100% natural! No artificial colors or flavours! The BEST Buransh juice from the heart of Uttarakhand! Limited stock — order NOW!"</p>
+    </div>
+  </div>
+</section>
+ 
+ 
+<!-- MARKETING HEADLINES -->
+<div class="copy-section">
+  <div class="copy-section-inner">
+    <div class="section-label">07 — Marketing copy</div>
+    <h2 class="section-title">Headlines &amp; campaign lines</h2>
+    <div class="headlines-grid">
+      <div class="headline-card">
+        <div class="use">Hero — homepage / packaging</div>
+        <h3>The Himalayas bloom once a year. We bottle it.</h3>
+        <p>Buransh. Cold-pressed Himalayan rhododendron. Harvested at 2,100 metres.</p>
+      </div>
+      <div class="headline-card">
+        <div class="use">India campaign — awareness</div>
+        <h3>The drink that made Uttarakhand's hills famous deserves a bottle worthy of its name.</h3>
+        <p>From the slopes of Chamoli to your glass — no shortcuts, no compromises.</p>
+      </div>
+      <div class="headline-card">
+        <div class="use">Export / global</div>
+        <h3>You know elderflower. You know hibiscus. Now meet Buransh.</h3>
+        <p>The rarest floral drink in the world. Grown where the Himalayas begin.</p>
+      </div>
+      <div class="headline-card">
+        <div class="use">Wellness / D2C</div>
+        <h3>Six weeks of bloom. One year of wellness.</h3>
+        <p>Rich in Quercetin, natural antioxidants, and the kind of calm that only comes from high altitude.</p>
+      </div>
+      <div class="headline-card">
+        <div class="use">Social — seasonal launch</div>
+        <h3>The harvest is here. The hills are red.</h3>
+        <p>Buransh season. March, Uttarakhand. Get this year's cold-press before it's gone.</p>
+      </div>
+      <div class="headline-card">
+        <div class="use">Gift / gifting season</div>
+        <h3>Give someone the state flower of Uttarakhand. In a glass bottle.</h3>
+        <p>A gift that tells a story — of altitude, of craft, of a place most people will never visit but now carry in their hands.</p>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+ 
+<!-- FOOTER -->
+<div class="brand-footer">
+  <div class="footer-inner">
+    <span class="footer-brand">Buransh</span>
+    <span class="footer-tagline">Born in the Himalayas. Bloomed for the World.</span>
+    <div style="display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;margin-bottom:2rem;">
+      <div style="text-align:center;">
+        <div style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,208,197,0.5);margin-bottom:4px;">Brand by</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--petal);">Uttarakhand YB Digital</div>
+      </div>
+      <div style="width:1px;background:rgba(245,208,197,0.15);"></div>
+      <div style="text-align:center;">
+        <div style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,208,197,0.5);margin-bottom:4px;">Category</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--gold-light);">Himalayan Floral Beverage</div>
+      </div>
+      <div style="width:1px;background:rgba(245,208,197,0.15);"></div>
+      <div style="text-align:center;">
+        <div style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,208,197,0.5);margin-bottom:4px;">Origin</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--gold-light);">Uttarakhand, India · 1,200–2,300m</div>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-credit">Brand identity system · 2025 · <span>Uttarakhand YB Digital</span> · All rights reserved</div>
+  </div>
+</div>
+ 
+</body>
+</html>
